@@ -26,17 +26,24 @@
         <div class="modal-content">
             <div class="modal-header">
             <button class="close" data-dismiss="modal">x</button>
-            <h4 class="modal-title">Добавить или удалить компрессор</h4>
+            <h4 class="modal-title">Добавить или изменить компрессор</h4>
             </div>
             <div class="modal-body">
                  <form method="POST" action="/?save=makecompress" id="createcompr">
                     <div class="form-group">
                     <label for="compsel">Новый компрессор</label>
-                    <input name='name' type='text' value="" placeholder="Имя" id="" class="form-control">
+                    <input name='name' type='text' value="" placeholder="Новый компрессор" id="" class="form-control">
                     </div>
                     <div class="form-group">
-                    <label for="compsel">Удалить компрессор</label>
+                    <label for="compsel">Изменить существующий</label>
                     <?=$select;?>
+                    </div>
+                    <div class="form-group">
+                    <label for="obdelete">Удалить компрессор</label>
+                    <input type="checkbox"  name="deleteobject" id="obdelete" class="objectdelete" value=1>
+                    <label for="obrename">Переименовать компрессор</label>
+                    <input type="checkbox"  name="renameobject" id="obrename" class="objectrename" value=1>
+                    <input name='rename' type='text' value="" placeholder="Новое название" id="" class="form-control">
                 </div>
                  <div class="form-group text-right">
                      <input type="submit" class="btn btn-success" value="Сохранить"/>
@@ -53,7 +60,7 @@
         <div class="modal-content">
             <div class="modal-header">
             <button class="close" data-dismiss="modal">x</button>
-            <h4 class="modal-title">Добавить или удалить вакуумник</h4>
+            <h4 class="modal-title">Добавить или изменить вакуумник</h4>
             </div>
             <div class="modal-body">
                  <form method="POST" action="/?save=makevakyym" id="creatvak">
@@ -62,8 +69,16 @@
                     <input name='name' type='text' value="" placeholder="Имя" id="" class="form-control">
                     </div>
                     <div class="form-group">
-                    <label for="vaksel">Удалить вакуумник</label>
+                    <label for="vaksel">Изменить существующий</label>
                     <?=$selectvak;?>
+                </div>
+                
+                <div class="form-group">
+                    <label for="obdelete">Удалить вакуумник</label>
+                    <input type="checkbox"  name="deleteobject" id="obdelete" class="objectdelete" value=1>
+                    <label for="obrename">Переименовать вакуумник</label>
+                    <input type="checkbox"  name="renameobject" id="obrename" class="objectrename" value=1>
+                    <input name='rename' type='text' value="" placeholder="Новое название" id="" class="form-control">
                 </div>
                  <div class="form-group text-right">
                      <input type="submit" class="btn btn-success" value="Сохранить"/>
@@ -80,7 +95,7 @@
         <div class="modal-content">
             <div class="modal-header">
             <button class="close" data-dismiss="modal">x</button>
-            <h4 class="modal-title">Добавить или удалить КГС</h4>
+            <h4 class="modal-title">Добавить или изменить КГС</h4>
             </div>
             <div class="modal-body">
                  <form method="POST" action="/?save=makekgs" id="createkgs">
@@ -89,8 +104,15 @@
                     <input name='name' type='text' value="" placeholder="Имя" id="" class="form-control">
                     </div>
                     <div class="form-group">
-                    <label for="compsel">Удалить КГС</label>
+                    <label for="compsel">Изменить существующую</label>
                     <?=$selectkgs;?>
+                </div>
+                <div class="form-group">
+                    <label for="obdelete">Удалить КГС</label>
+                    <input type="checkbox"  name="deleteobject" id="obdelete" class="objectdelete" value=1>
+                    <label for="obrename">Переименовать КГС</label>
+                    <input type="checkbox"  name="renameobject" id="obrename" class="objectrename" value=1>
+                    <input name='rename' type='text' value="" placeholder="Новое название" id="" class="form-control">
                 </div>
                  <div class="form-group text-right">
                      <input type="submit" class="btn btn-success" value="Сохранить"/>

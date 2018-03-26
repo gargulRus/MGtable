@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `objects` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) COLLATE utf8_bin DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- Экспортируемые данные не выделены.
 -- Дамп структуры для таблица mgtable2018.tasks
@@ -30,8 +30,11 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `object_id` int(11) DEFAULT NULL,
   `name` varchar(50) COLLATE utf8_bin DEFAULT NULL,
   `pos_num` int(11) DEFAULT NULL,
+  `com_id` int(11) DEFAULT NULL,
+  `vak_id` int(11) DEFAULT NULL,
+  `kgs_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- Экспортируемые данные не выделены.
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

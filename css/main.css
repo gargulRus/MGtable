@@ -39,6 +39,9 @@ table{
 font-size: 12px;
 }
 
+.paintrows{
+	background-color: #ececec;
+}
 .objectplace{
 	margin-top: 10px;
 width: 15%;

@@ -5,38 +5,35 @@ session_start();
 //error_reporting(0); //Протокол ошибок выключен
 error_reporting(-1); //Вывод всех ошибок
 
-//подключаем базу
-
+//смотрим что пришло из выбора формы годов id="changeyear", и подключаем базу с нужным именем
 if(isset($_POST['idyear'])){
-       if($_POST['idyear']==2){
+    if($_POST['idyear']==2){
         $_SESSION['yeardb']='mgtable2017';
         $year=" за 2017 год";
-       } else if($_POST['idyear']==3){
+    } else if($_POST['idyear']==3){
         $_SESSION['yeardb']='mgtable2018';
         $year=" за 2018 год";
-       }
-       else if($_POST['idyear']==1){
+    }
+    else if($_POST['idyear']==1){
         $_SESSION['yeardb']='mgtable2016';
         $year=" за 2016 год";
-       }
+    }
 }
-//else {
-//     $_SESSION['yeardb']='mgtable2018';
-//     $year="2018 год";
-// }
+//получив перменную с именем базы подключаем ее и другие
 include_once(__DIR__."/scripts/connect.php");
 
+//запрос в базу выбора годов
 $res2 = query2("SELECT id, year_name FROM `years`");
 if(!$res2) exit("Ошибка запроса: ".mysqli_error());
 if(mysqli_num_rows($res2)>0){ 
     $selectyear = '<select name="idyear"  class="yyeear form-control input-sm" id="yearsel">'; 
-    // В цикле выводим опции селекта 
     while($row = mysqli_fetch_assoc($res2)){ 
         $selectyear.= "<option value=".$row['id'].">".$row['year_name']."</option>";
     } 
     $selectyear.="</select>";
 }
-// Установимть админские права:
+
+// Установим админские права:
 //в ссылке браузера добавить ?mode=admin
 //тогда будет работать блок php дающий возможность управлять таблицей
 if(isset($_GET['mode']) && $_GET['mode'] == 'admin'){

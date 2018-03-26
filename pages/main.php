@@ -10,7 +10,7 @@ include $_SERVER['DOCUMENT_ROOT']."/includes/selects.php";
 <a href="#" data-toggle="modal" data-target="#makekgs" class="openformcreate btn btn-gipro">КГС</a>  
   </div>
 <?php
-// формируем первоначальный массив с месяцами
+// формируем первоначальный массив с позициями
 $month=array(
            1=>'1',
            '2',
@@ -34,7 +34,7 @@ while($data = mysqli_fetch_assoc($result)){
     $result2 = query("SELECT id, name, pos_num FROM tasks WHERE object_id=".$data['id']);
     $planarr=array();
     while($plan = mysqli_fetch_assoc($result2)){ 
-            //тут какая-то магия с датами
+            //тут какая-то магия
         $planarr[$plan['pos_num']]=array(
               'id'=>$plan['id'],
               'name'=>$plan['name'],
@@ -61,10 +61,10 @@ echo "   <div class='div-table'>";
             <th rowspan='2'>КГС</th>
         </tr>
         <tr>
-        <th>МГ</th>
-        <th>КГС</th>
-        <th>МГ</th>
-        <th>КГС</th>
+        <th class='paintrows'>МГ</th>
+        <th class='paintrows'>КГС</th>
+        <th class='paintrows'>МГ</th>
+        <th class='paintrows'>КГС</th>
        </tr>";
 
     foreach ($list as $key => $row) {
@@ -77,7 +77,10 @@ echo "   <div class='div-table'>";
             data-id="'.$row['id'].'"
             data-name="'.$row['name'].'"
             >'. $row['name'] .'</a></td>';
-   
+   /*
+в цикле делается проверка на номера позиций, с 5 по 7 вставляются комрпессор(5), вакуум(6), и КГС(7)
+обязательно соблюдать жесткую привязку к этим номерам.
+   */
         foreach ($month as $key_m => $col) {
             if(isset($row['plan'][$key_m])){
                     if($key_m < 5){

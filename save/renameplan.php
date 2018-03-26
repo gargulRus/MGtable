@@ -14,10 +14,8 @@ if(isset($_POST['deletplan'])){
 // А если 1(true) то удаляем задачу из базы
 if ($del==2){
 		if (is_numeric( $id)){
-
 			$result = query ("UPDATE tasks SET name = '$rename' WHERE id='$id'");
             $action=" переименовывается";
-			
 		}else {
 			$object_id = $_POST['object-id'];
 			$pos_num = $_POST['position'];
@@ -27,23 +25,17 @@ if ($del==2){
 			}
 			$action=" создается";
 		}
- 
 	}else {
 	  $result2 = query ("DELETE FROM tasks WHERE id='$id'");
 	  $action=" удаляется";
   }
-
-
 ?>
 
 <div class="fomrobject">
 <h4>Задача<?php echo $action; ?>  <i class="fas fa-sync fa-spin"></i></h4>
-
 <script type="text/javascript">
 $( document ).ready(function() {
 	setTimeout(function(){ location.reload(); }, 1500);
- 
-
 });
 </script>
 </div>
